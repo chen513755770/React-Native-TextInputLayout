@@ -7,8 +7,8 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Animated, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 
-const DEFAULT_PLACEHOLDER_COLOR = '#C7C7CD';
-const DEFAULT_LABEL_COLOR = '#414Db1';
+const DEFAULT_PLACEHOLDER_COLOR = '#333333';
+const DEFAULT_LABEL_COLOR = '#eeeeee';
 const DEFAULT_LABEL_ERROR_COLOR = '#C5270E';
 
 export default class TextInputLayout extends Component {
@@ -144,10 +144,7 @@ export default class TextInputLayout extends Component {
         let {errorColor, hintColor, focusColor}=this.props;
         let color = isError ? errorColor : (isFocused ? focusColor : hintColor);
         return (
-            <View style={[{
-                borderBottomWidth: isFocused ? 2 : 1,
-                borderBottomColor: color
-            }, this.props.style]}
+            <View style={this.props.style}
             >
                 <Animated.Text
                     style={[this._labelStyle, {color: color}]} >
